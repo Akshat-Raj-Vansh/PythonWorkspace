@@ -1,7 +1,11 @@
 from graphics import *
 from math import *
 
-win = GraphWin("Transformations", 600, 600)
+win = GraphWin("Rolling down the hill", 600, 600)
+height = int(input("Enter the height of the wedge "))
+width = int(input("Enter the width of the wedge "))
+radius = int(input("Enter the diameter of the disc ")) / 2
+theta = atan(height / width)
 
 
 def drawLine(x1, y1, x2, y2):
@@ -49,26 +53,24 @@ def drawLine(x1, y1, x2, y2):
 
 
 def getCentres():
+    global theta
     x = radius * sin(theta)
     y = radius * (1 - cos(theta))
+    b = width
     while x < width:
-        time.sleep(0.5)
         win.delete("all")
         x = x + 1
         y = y + height / width
         drawWedge()
+        theta -= x / b
+        b += 10
+        drawSpokes(x, y)
         midPointCircleDraw(x, y, radius)
 
 
 def midPointCircleDraw(x_centre, y_centre, r):
     x = r
     y = 0
-    print("(", x + x_centre, ", ", y + y_centre, ")")
-
-    if r > 0:
-        print("({xval}, {yval})".format(xval=x + x_centre, yval=y + y_centre))
-        print("(", y + x_centre, ", ", x + y_centre, ")")
-        print("(", -y + x_centre, ", ", x + y_centre, ")")
 
     P = 1 - r
     while x > y:
@@ -81,20 +83,12 @@ def midPointCircleDraw(x_centre, y_centre, r):
         if x < y:
             break
 
-        print("(", x + x_centre, ", ", y + y_centre, ")")
-        print("(", -x + x_centre, ", ", y + y_centre, ")")
-        print("(", x + x_centre, ", ", -y + y_centre, ")")
-        print("(", -x + x_centre, ", ", -y + y_centre, ")")
         plotPoints(x + x_centre, y + y_centre)
         plotPoints(-x + x_centre, y + y_centre)
         plotPoints(x + x_centre, -y + y_centre)
         plotPoints(-x + x_centre, -y + y_centre)
 
         if x != y:
-            print("(", y + x_centre, ", ", x + y_centre, ")")
-            print("(", -y + x_centre, ", ", x + y_centre, ")")
-            print("(", y + x_centre, ", ", -x + y_centre, ")")
-            print("(", -y + x_centre, ", ", -x + y_centre, ")")
             plotPoints(y + x_centre, x + y_centre)
             plotPoints(-y + x_centre, x + y_centre)
             plotPoints(y + x_centre, -x + y_centre)
@@ -107,16 +101,19 @@ def drawWedge():
     drawLine(0, radius + height, width, radius + height)
 
 
+def drawSpokes(x, y):
+    Line(Point(x, y), Point(x + radius * sin(theta), y + radius * cos(theta))).draw(win)
+    Line(Point(x, y), Point(x + radius * sin(theta + pi / 2), y + radius * cos(theta + pi / 2))).draw(win)
+    Line(Point(x, y), Point(x - radius * sin(theta), y - radius * cos(theta))).draw(win)
+    Line(Point(x, y), Point(x - radius * sin(theta + pi / 2), y - radius * cos(theta + pi / 2))).draw(win)
+
+
 def plotPoints(x, y):
     point = Point(x, y)
     point.draw(win)
 
 
 if __name__ == '__main__':
-    height = int(input("Enter the height of the wedge"))
-    width = int(input("Enter the width of the wedge"))
-    radius = int(input("Enter the diameter of the disc.")) / 2
-    theta = atan(height / width)
     getCentres()
     win.getMouse()
     win.close()
