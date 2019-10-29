@@ -48,52 +48,6 @@ def drawLine(x1, y1, x2, y2):
         dd = dd + 2 * dy
 
 
-def getCentre(x1, y1, x2, y2):
-    dx = int(abs(x2 - x1))
-    dy = int(abs(y2 - y1))
-
-    if x2 - x1 < 0:
-        sx = -1
-    else:
-        sx = 1
-    if y2 - y1 < 0:
-        sy = -1
-    else:
-        sy = 1
-
-    print("dx = ", dx)
-    print("dy = ", dy)
-
-    swap = 0
-    if dy > dx:
-        swap = 1
-        dx = dx + dy
-        dy = dx - dy
-        dx = dx - dy
-
-    dd = 2 * dy - dx
-    print("dd = ", dd)
-    x = x1
-    y = y1
-    for ii in range(0, dx):
-        time.sleep(0.5)
-        win.delete("all")
-        while dd >= 0:
-            if swap:
-                x = x + sx
-            else:
-                y = y + sy
-                dd = dd - 2 * dx
-
-        if swap:
-            y = y + sy
-        else:
-            x = x + sx
-        dd = dd + 2 * dy
-        drawWedge()
-        midPointCircleDraw(x, y, radius)
-
-
 def getCentres():
     x = radius * sin(theta)
     y = radius * (1 - cos(theta))
@@ -162,7 +116,7 @@ if __name__ == '__main__':
     height = int(input("Enter the height of the wedge"))
     width = int(input("Enter the width of the wedge"))
     radius = int(input("Enter the diameter of the disc.")) / 2
-    theta = radians((360 * sqrt(height ** 2 + width ** 2)) / (width * pi * radius * 2))
+    theta = atan(height / width)
     getCentres()
     win.getMouse()
     win.close()
