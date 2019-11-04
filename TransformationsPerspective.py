@@ -1,6 +1,6 @@
 from graphics import *
 
-win = GraphWin("Midpoint Circle", 600, 600)
+win = GraphWin("3D Transformations", 600, 600)
 
 
 def drawLine(x1, y1, x2, y2):
