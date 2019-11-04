@@ -14,6 +14,7 @@ for x in range(100, 1000):
     Line(Point(100, 100), Point(100, 100 + h)).draw(win)
     Line(Point(100, 100 + h), Point(1000, 100 + h)).draw(win)
     Line(Point(100, 100), Point(100 + l, 100 + h)).draw(win)
+
     # drawing the circle
     Circle(Point(x0, y0), 50).draw(win)
     # drawing the spikes of the circle
