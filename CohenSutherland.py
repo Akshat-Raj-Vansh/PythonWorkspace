@@ -10,7 +10,7 @@ x_max = 600
 y_max = 600
 x_min = 400
 y_min = 400
-win = GraphWin("Sutherland Line Clipping", 800, 800)
+win = GraphWin("Cohen Sutherland Line Clipping", 800, 800)
 
 
 def LineDraw(x1, y1, x2, y2):
