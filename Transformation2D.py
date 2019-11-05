@@ -1,7 +1,7 @@
 from graphics import *
 from math import *
 
-win = GraphWin("2d Transforms", 1500, 500)
+win = GraphWin("2D Transformations", 1500, 500)
 win.setBackground("White")
 
 x, y, x1, y1, x2, y2 = (int(x) for x in input("Enter the vertices of triangle : ").split())
@@ -18,10 +18,7 @@ print("4. Translation")
 
 choice = int(input())
 
-# win.delete("all")
-
-
-if (choice == 1):
+if choice == 1:
     sx = float(input("Enter x scale factor : "))
     sy = float(input("Enter y scale factor : "))
     x = sx * x
@@ -34,7 +31,7 @@ if (choice == 1):
     Line(Point(750 + x, 250 + y), Point(750 + x2, 250 + y2)).draw(win)
     Line(Point(750 + x2, 250 + y2), Point(750 + x1, 250 + y1)).draw(win)
 
-elif (choice == 2):
+elif choice == 2:
     thetha = float(input("Enter the angle for rotation : "))
     sx = cos(radians(thetha))
     sy = sin(radians(thetha))
@@ -75,7 +72,7 @@ elif choice == 3:
     Line(Point(750 + x, 250 + y), Point(750 + x2, 250 + y2)).draw(win)
     Line(Point(750 + x2, 250 + y2), Point(750 + x1, 250 + y1)).draw(win)
 
-elif (choice == 4):
+elif choice == 4:
     sx = int(input("Enter the x translation value : "))
     sy = int(input("Enter the y translation value : "))
     x += sx
