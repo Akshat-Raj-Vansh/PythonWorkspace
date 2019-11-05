@@ -102,6 +102,7 @@ if __name__ == '__main__':
     c = int(input("Choose:\n1.Scaling\n2.Reflection\n"))
     if c == 1:
         P = Scale(P, n)
+        drawShape(P)
 
     if c == 2:
         k = int(input("Choose Axis about which you need reflection:\n1.X Axis\n2.Y Axis\n3.Origin"))
