@@ -4,7 +4,7 @@ x_max = 600
 y_max = 600
 x_min = 400
 y_min = 400
-win = GraphWin("Liang_Barsky_Line_Clipping", 780, 780)
+win = GraphWin("Liang Barsky Line Clipping", 780, 780)
 
 
 def liang_barsky_clip(x1, y1, x2, y2):
@@ -14,7 +14,7 @@ def liang_barsky_clip(x1, y1, x2, y2):
     q = [x1 - x_min, x_max - x1, y1 - y_min, y_max - y1]
     for i, val in enumerate(p):
         if val == 0:
-            print("Line is parallel to one of the clipping boundry")
+            print("Line is parallel to one of the clipping boundary")
             if q[i] >= 0:
                 if i < 2:
                     if y1 < y_min:
@@ -32,7 +32,6 @@ def liang_barsky_clip(x1, y1, x2, y2):
                     clip_line.draw(win)
     t1 = 0.0
     t2 = 1.0
-    r = 0
 
     print(t1, t2)
     for i in range(4):
