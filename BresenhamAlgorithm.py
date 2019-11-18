@@ -20,7 +20,7 @@ while x < x2 or y < y2:
     x = x + 1
     if dd >= 0:
         y = y + 1
-        dd = dd + 2 * dx
+        dd = dd - 2 * dx
     print("dd = ", dd)
     print("x = ", x)
     print("y = ", y)
