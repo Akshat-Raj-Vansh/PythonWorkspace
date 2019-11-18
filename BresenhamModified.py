@@ -25,10 +25,7 @@ slope = dy / dx
 swap = 0
 if dy > dx:
     swap = 1
-    dx = dx + dy
-    dy = dx - dy
-    dx = dx - dy
-
+    dx, dy = dy, dx
 dd = 2 * dy - dx
 print("dd = ", dd)
 x = x1
