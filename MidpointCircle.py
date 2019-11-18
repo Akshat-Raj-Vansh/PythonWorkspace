@@ -1,19 +1,12 @@
 from graphics import *
 
 win = GraphWin("Midpoint Circle", 600, 600)
+win.setCoords(-300, -300, 300, 300)
 
 
 def midPointCircleDraw(x_centre, y_centre, r):
     x = r
     y = 0
-
-    print("(", x + x_centre, ", ", y + y_centre, ")")
-
-    if r > 0:
-        print("({xval}, {yval})".format(xval=x+x_centre, yval=y+y_centre))
-        print("(", y + x_centre, ", ", x + y_centre, ")")
-        print("(", -y + x_centre, ", ", x + y_centre, ")")
-
     P = 1 - r
     while x > y:
         y += 1
@@ -24,25 +17,14 @@ def midPointCircleDraw(x_centre, y_centre, r):
             P = P + 2 * y - 2 * x + 1
         if x < y:
             break
-
-        print("(", x + x_centre, ", ", y + y_centre, ")")
-        print("(", -x + x_centre, ", ", y + y_centre, ")")
-        print("(", x + x_centre, ", ", -y + y_centre, ")")
-        print("(", -x + x_centre, ", ", -y + y_centre, ")")
         plotPoints(x + x_centre, y + y_centre)
         plotPoints(-x + x_centre, y + y_centre)
         plotPoints(x + x_centre, -y + y_centre)
         plotPoints(-x + x_centre, -y + y_centre)
-
-        if x != y:
-            print("(", y + x_centre, ", ", x + y_centre, ")")
-            print("(", -y + x_centre, ", ", x + y_centre, ")")
-            print("(", y + x_centre, ", ", -x + y_centre, ")")
-            print("(", -y + x_centre, ", ", -x + y_centre, ")")
-            plotPoints(y + x_centre, x + y_centre)
-            plotPoints(-y + x_centre, x + y_centre)
-            plotPoints(y + x_centre, -x + y_centre)
-            plotPoints(-y + x_centre, -x + y_centre)
+        plotPoints(y + x_centre, x + y_centre)
+        plotPoints(-y + x_centre, x + y_centre)
+        plotPoints(y + x_centre, -x + y_centre)
+        plotPoints(-y + x_centre, -x + y_centre)
 
 
 def getInput():

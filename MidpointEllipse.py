@@ -13,24 +13,17 @@ def midpointEllipse(rx, ry, xc, yc):
     dy = 2 * rx * rx * y
 
     while dx < dy:
-        print("(", x + xc, ",", y + yc, ")")
-        print("(", -x + xc, ",", y + yc, ")")
-        print("(", x + xc, ",", -y + yc, ")")
-        print("(", -x + xc, ",", -y + yc, ")")
-
         Point(x + xc, y + yc).draw(win)
         Point(-x + xc, y + yc).draw(win)
         Point(x + xc, -y + yc).draw(win)
         Point(-x + xc, -y + yc).draw(win)
+        dx = dx + (2 * ry * ry)
+        x += 1
 
         if d1 < 0:
-            x += 1
-            dx = dx + (2 * ry * ry)
             d1 = d1 + dx + (ry * ry)
         else:
-            x += 1
             y -= 1
-            dx = dx + (2 * ry * ry)
             dy = dy - (2 * rx * rx)
             d1 = d1 + dx - dy + (ry * ry)
 
@@ -39,26 +32,18 @@ def midpointEllipse(rx, ry, xc, yc):
           (rx * rx * ry * ry))
 
     while y >= 0:
-
-        print("(", x + xc, ",", y + yc, ")")
-        print("(", -x + xc, ",", y + yc, ")")
-        print("(", x + xc, ",", -y + yc, ")")
-        print("(", -x + xc, ",", -y + yc, ")")
-
         Point(x + xc, y + yc).draw(win)
         Point(-x + xc, y + yc).draw(win)
         Point(x + xc, -y + yc).draw(win)
         Point(-x + xc, -y + yc).draw(win)
+        y -= 1
+        dy = dy - (2 * rx * rx)
 
         if d2 > 0:
-            y -= 1
-            dy = dy - (2 * rx * rx)
             d2 = d2 + (rx * rx) - dy
         else:
-            y -= 1
             x += 1
             dx = dx + (2 * ry * ry)
-            dy = dy - (2 * rx * rx)
             d2 = d2 + dx - dy + (rx * rx)
 
     win.getMouse()

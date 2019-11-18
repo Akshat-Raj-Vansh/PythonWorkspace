@@ -77,7 +77,7 @@ def translation(vert):
 def rotation(vert):
     vert = np.hstack((vert, np.ones((vert.shape[0], 1), dtype=vert.dtype)))
     angle = float(input("Enter the angle")) * 3.14 / 180
-    axis = input("Enter the axis of roatation:")
+    axis = input("Enter the axis of rotation:")
     if axis == 'x':
         trans = np.array([[0, 0, 1, 0], [cos(angle), sin(angle), 0, 0], [-sin(angle), cos(angle), 0, 0], [0, 0, 0, 1]],
                          dtype=float)
