@@ -84,7 +84,7 @@ if __name__ == '__main__':
     # print(EyeL)
     # print(EyeR)
     # print(Smile)
-    Face = Scale(Face)
+    #Face = Scale(Face)
     print(Face)
     win.getMouse()
     win.delete("all")

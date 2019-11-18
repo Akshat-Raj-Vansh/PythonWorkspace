@@ -14,14 +14,6 @@ def drawPoints(xx, yy):
 
 
 while x <= y:
-    # drawPoints(x, y)
-    # drawPoints(-x, y)
-    # drawPoints(x, -y)
-    # drawPoints(-x, -y)
-    # drawPoints(y, x)
-    # drawPoints(-y, -x)
-    # drawPoints(-y, x)
-    # drawPoints(y, -x)
     if dd < 0:
         dd = dd + 4 * x + 6
     else:
