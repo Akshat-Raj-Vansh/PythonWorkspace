@@ -32,8 +32,7 @@ x = x1
 y = y1
 i = 0
 for i in range(0, dx):
-    point = Point(x, y)
-    point.draw(win)
+    Point(x, y).draw(win)
     while dd >= 0:
         if swap:
             x = x + sx
