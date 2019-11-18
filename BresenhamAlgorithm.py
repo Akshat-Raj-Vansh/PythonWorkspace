@@ -16,13 +16,11 @@ x = x1
 y = y1
 
 while x < x2 or y < y2:
+    dd = dd + 2 * dy
+    x = x + 1
     if dd >= 0:
-        x = x + 1
         y = y + 1
-        dd = dd + 2 * (dy - dx)
-    else:
-        x = x + 1
-        dd = dd + 2 * dy
+        dd = dd + 2 * dx
     print("dd = ", dd)
     print("x = ", x)
     print("y = ", y)
