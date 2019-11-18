@@ -41,19 +41,19 @@ def Cube(vertices):
     glEnd()
 
 
-def overall_scalling(vert):
+def overall_scaling(vert):
     vert = np.hstack((vert, np.ones((vert.shape[0], 1), dtype=vert.dtype)))
     print("Enter the scaling factor")
     s = float(input())
     trasn = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, s]], dtype=float)
     vert = vert.dot(trasn)
-    vert = vert / s;
+    vert = vert / s
     vert = np.delete(vert, 3, 1)
     print(vert)
     return vert
 
 
-def local_scalling(vert):
+def local_scaling(vert):
     vert = np.hstack((vert, np.ones((vert.shape[0], 1), dtype=vert.dtype)))
     print("Enter the scaling factor in x,y and z")
     x, y, z = [float(x) for x in input().split()]
@@ -125,9 +125,9 @@ def main():
                 if event.key == K_LCTRL:
                     glTranslatef(3, 0.0, 0)
                 if event.key == K_s:
-                    vert = overall_scalling(vert)
+                    vert = overall_scaling(vert)
                 if event.key == K_l:
-                    vert = local_scalling(vert)
+                    vert = local_scaling(vert)
                 if event.key == K_t:
                     vert = translation(vert)
                 if event.key == K_r:
